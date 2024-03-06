@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiSar's Game</title>
+    <link rel="stylesheet" href="">
+    
+</head>
+<style>
+    
+    body{
+        background-image: url(Img/Background2.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+    .container{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 120px;
+    }
+    #easy-button,
+    #average-button,
+    #difficult-button,
+    #high-scores-button{
+        width: 200px;
+        height: 50px;
+        margin-bottom: 20px;
+        font-size: 17px;
+        color: white;
+        background-color: rgba(44, 43, 43, 0.25);
+        border-style: solid;
+        border-width: 1px;
+        transition: background-color 1s;
+    }
+    #easy-button:hover,
+    #average-button:hover,
+    #difficult-button:hover,
+    #high-scores-button:hover{
+        background-color: rgba(0, 0, 0, 0.6);
+        cursor: pointer;
+    }
+    h1{
+        margin-bottom: 10px;
+        font-size: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+        backdrop-filter: blur(1px);
+        border-radius: 20px;
+    }
+    h2{
+        font-size: 40px;
+        margin-top: 10px;
+        margin-bottom: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+        backdrop-filter: blur(1px);
+        border-radius: 20px;
+    }
+    .mute{
+        position: absolute;
+    }
+    .mute-img{
+        width: 300px;
+        opacity: 0.5;
+    }
+    .unmute{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+    .unmute-img{
+        width: 300px;
+        opacity: 0.5;
+    }
+    .return {
+        position: absolute;
+        display: flex;
+        bottom: 50px;
+        right: 100px;
+        margin: 0;
+        width: 150px;
+        height: 150px;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 50%;
+        border-color: rgb(0, 0, 0);
+        font-size: 17px;
+        background-color: rgba(0, 0, 0, 0.25);
+        transition: background-color 0.5s;
+    }
+    .return:hover{
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+    .return:active {
+        background-color: rgb(0, 0, 0, 1);
+        cursor: pointer;
+    }
+</style>
+<body>
+    <div class="container">
+        <h1>SiSar's Game</h1>
+        <h2>Select Difficulty</h2>
+        <a href="/easy.html"><button id="easy-button">Easy</button></a>
+        <a href="/average.html"><button id="average-button">Average</button></a>
+        <a href="/difficult.html"><button id="difficult-button">Difficult</button></a>
+       
+    </div> 
+    <a href="index.html">
+        <button class="return">Return to Main Menu</button></a>
+    <script src="/js/easy.js"></script>
+    
+   </body>
+</html>

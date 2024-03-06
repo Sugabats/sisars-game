@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scores</title>
+    <style>
+        body{
+            background-image: url(Img/Background10.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding-top: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 70px;
+        }
+        h2 {
+            font-size: 50px;
+        }
+        h3 {
+            font-size: 40px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            justify-content: center;
+        }
+        .player_scores{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .difficulty{
+            border-style: solid;
+            border-width: 3px;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
+            padding-bottom: -100px;
+        }
+        .easy,
+        .average,
+        .difficult{
+            border-style: solid;
+            border-color: black;
+            text-align: center;
+            padding: 50px;
+            border-radius: 50%;
+            margin: 50px;
+            margin-top: 10px;
+            background-color: rgb(255,255,255, 0.5);
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 200px;
+            height: 200px;
+        }
+        .result{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+        .total_score{
+            display: flex;
+            width: 300px;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        .go_to_home{
+            font-size: 20px;
+            font-weight: 100;
+            height: 200px;
+            width: 200px;
+            background-color: rgb(255,255,255, 0.5);
+            border-radius: 100px;
+            transition: background-color 0.5s;
+            border-style: solid;
+        }  
+        .go_to_home:hover{
+            background-color: rgb(0,0,0, 0.4)
+        }
+        .go_to_home:active{
+            background-color: rgb(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scores</h1>
+    <div class="container">
+        <div class="player_scores">
+            <div class="easy">
+                <div class="content">
+                    <div class="difficulty">
+                        <h2>Easy</h2>
+                    </div>
+                    <div class="easyTotalScores">
+                    <h3 id="easyTotalscore">
+                        0
+                    </h3>
+                    </div>
+                </div>
+            </div>
+            <div class="average">
+                <div class="content">
+                    <div class="difficulty">
+                        <h2>Average</h2>
+                    </div>
+                    <div class="averageTotalScores">
+                        <h3 id="averageTotalscore">
+                            0
+                        </h3>
+                        </div>
+                </div>
+            </div>
+            <div class="difficult">
+                <div class="content">
+                    <div class="difficulty">
+                        <h2>Difficult</h2>
+                    </div>
+                    <div class="difficultTotalScores">
+                        <h3 id="difficultTotalscore">
+                            0
+                        </h3>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="result">
+            <div class="total_scores">
+                <h2 class="total_score">Total: 300</h2>
+                <div class="home_button">
+                    <a href="index.html"><button class="go_to_home">Return to Main Menu</button></a>
+
+                    <button id="reset-button">Reset Scores</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/end.js"></script>
+    <script src="js/end1.js"></script>
+    <script src="js/end2.js"></script>
+    <script src="js/finalScore.js"></script>
+</body>
+</html>

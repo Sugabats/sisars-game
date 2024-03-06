@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SiSar's Game</title>
+</head>
+<style>
+
+ 
+    body{
+        background-image: url(Img/Background6.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+    .container{
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-top: 120px;
+    }
+    h1{
+        margin-bottom: 10px;
+        font-size: 100px;
+    }
+    h2{
+        font-size: 40px;
+        margin-top: 10px;
+        margin-bottom: 30px;
+    }
+    h3{
+        font-size: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .questionHead{
+        display: flex;
+        flex-direction: row;
+    }
+    .space{
+        opacity: 0;
+
+        .timer { position: fixed; right: 50px; top: 50px; margin: 0; font-size: 20px; }
+    }
+    h4{
+        font-size: 25px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .answer{
+        width: 250px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-right: 10px;
+        padding-left: 10px;
+        border-radius: 10px;
+        border-style: solid;
+        text-align: center;
+        font-size: 18px;
+        color: black;
+        border-color: black;
+        background-color: rgb(0, 0, 0, 0.2);
+        transition: background-color 1s, color 1s;
+    }
+    .answer::placeholder{
+        font-size: 18px;
+        color: black;
+    }
+    .answer:hover{
+        cursor: pointer;
+    }
+    .answer:focus::placeholder{
+        color: transparent;
+    }
+    input[type=text]:focus{
+        background-color: rgb(0, 0, 0, 0.8);
+        color: white;
+    }
+    .questionHead{
+        font-size: rem;
+    }
+    #question{
+        font-size: 25px;
+        backdrop-filter: blur(2px);
+    }
+    .score{
+        position: absolute;
+        display: flex;
+        left: 50px;
+        top: 50px;
+        margin: 0;
+        width: 200px;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 1px;
+        font-size: 60px;
+    }
+    .scoreLabel{
+        position: absolute;
+        font-size: 35px;
+        left: 110px;
+        top: 10px;
+        margin: 0;
+        display: inline-block;
+        font-weight: 700;
+    } 
+
+    .timer{
+        position: absolute;
+        display: flex;
+        right: 50px;
+        top: 50px;
+        margin: 0;
+        width: 200px;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 1px;
+        border-color: rgb(0, 0, 0);
+        font-size: 3rem;
+        color: rgb(0, 0, 0);
+    }
+    .timerLabel{
+        position: absolute;
+        font-size: 35px;
+        right: 105px;
+        top: 10px;
+        margin: 0;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+    }
+ 
+    
+</style>
+
+<body>
+    <p class="scoreLabel">Score</p>
+    <p class="timerLabel">Timer</p>
+    <div class="score">0</div>
+    <div class="timer"> 
+        <img id="time" src="/img/timer.png" width="30px">
+        <span class="time">60s</span>
+    </div>
+    <div class="container">
+        <h1>SiSar's Game</h1>
+        <h2>Difficulty: Average</h2>
+        <div class="questionHead">
+        </div>
+
+        <p id="question">"The hardest arithmetic to master is that which enables us to count </p>
+        <input class="answer" type="text" style="text-transform: lowercase;" placeholder="Write the correct answer here"> 
+        
+ 
+  <script src="/js/average.js"></script>
+  
+</body>
+</html>
