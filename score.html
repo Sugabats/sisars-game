@@ -162,10 +162,7 @@
         }
     </style>
 </head>
-<script> window.onbeforeunload = function () {
-    document.getElementById("background-audio").pause();
-    localStorage.setItem("isAudioPlaying", "false");
-  };</script>
+
 <body>
     <h1>Scores</h1>
     <div class="container">
@@ -218,12 +215,7 @@
             </div>
         </div>
     </div>
-    <audio id="background-audio" autoplay loop>
-        <source src="/audio/y2mate.com - Roa  Awakening Official.mp3" type="audio/mp3">
-    </audio>
-    <div class="audio-controls">
-        <img id="mute" src="/img/mute (1).png" height="40px" width="40px" onclick="muteAudio()" />
-        <img id="unmute" src="/img/volume.png" height="40px" width="40px" onclick="unmuteAudio()" style="display:none;" />
+    
     </div>
    <script src="/js/end.js"></script>
    <script src="/js/end1.js"></script>

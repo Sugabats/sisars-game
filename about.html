@@ -129,33 +129,6 @@
         </div>
     </div>
     <a href="index.html"><button class="return">Return to Main Menu</button></a>
-    <audio id="background-audio" autoplay loop>
-        <source src="/audio/background.mp3" type="audio/mp3">
-    </audio>
-    <div class="audio-controls">
-        <img id="mute" src="/img/mute (1).png" height="30px" width="30px" onclick="muteAudio()" />
-        <img id="unmute" src="/img/volume.png" height="30px" width="30px" onclick="unmuteAudio()" style="display:none;" />
-    </div>
-
-        <script src="/js/audio.js"></script>
-
-        <script>
-            function muteAudio() {
-      document.getElementById("background-audio").muted = true;
-      localStorage.setItem("isAudioPlaying", "false");
-      document.getElementById("mute").style.display = "none";
-      document.getElementById("unmute").style.display = "block";
-    }
-    
-    function unmuteAudio() {
-      document.getElementById("background-audio").muted = false;
-      localStorage.setItem("isAudioPlaying", "true");
-      document.getElementById("mute").style.display = "block";
-      document.getElementById("unmute").style.display = "none";
-    }
-            window.onload = function() {
-                handleAudio();  
-            };
-        </script>
+  
 </body>
 </html>

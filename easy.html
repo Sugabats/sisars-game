@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto:wght@100;400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
@@ -143,6 +144,70 @@
     .incorrect{
         background-color: red;
     }
+    .timer{
+        position: absolute;
+        display: flex;
+        right: 50px;
+        top: 100px;
+        margin: 0;
+        width: 200px;
+        height: 200px;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-radius: 50%;
+        border-width: 1px;
+        border-color: rgb(0, 0, 0);
+        font-size: 3rem;
+        color: rgb(0, 0, 0);
+    }
+    .timerLabel{
+        position: absolute;
+        font-size: 35px;
+        right: 110px;
+        top: 60px;
+        margin: 0;
+        display: inline-block;
+        color: rgb(0, 0, 0);
+        font-weight: 700;
+    }
+    
+    .audio-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.audio-controls img {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.audio-controls img:hover {
+  transform: scale(1.1);
+}
+
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+    
 
 </style>
 <script> window.onbeforeunload = function () {
