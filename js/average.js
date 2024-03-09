@@ -1,5 +1,6 @@
 const question = document.querySelector('#question');
-const answer = document.querySelector('.answer').value.toLowerCase;
+const answer = document.querySelector('.answer');
+answer.value.toLowerCase();
 const progressText = document.querySelector('.questionHead');
 const scoreText = document.querySelector('.score');
 const timeText = document.querySelector('.time');
@@ -11,6 +12,7 @@ let score = 0;
 let questionCounter = 0; 
 let availableQuestions = [];
 let timeLeft = 60;
+
 
 const questions = [
   {
@@ -55,37 +57,53 @@ const questions = [
     answer: '15',  
   },
   {
-    question: 'What is the 3rd term of a geometric sequence with the 1st term 4 and the 5th term 62?',
+    question: 'What is the 3rd term of a geometric sequence with the 1st term 4 and the 5th term 64?',
     answer: '16',  
-  }
+  }  
 ];
 
 const SCORE_POINTS = 1
 const MAX_QUESTIONS = 5 
 
+
+
 startGame = () => {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...questions];
+    availableQuestions = [...questions]
 
     setTimeout(() =>{
      getNewQuestion();
      timer();
     }, 3000);
-   
+ 
     
 };
 
+checkEmptyAnswer = () => {
+  if(answer.value.trim() === ''){
+    alert('Please answer to proceed');
+    answer.focus();
+    return true;
+  }
+  return false;
+}
+
 checkAnswer = (e) => {
+
+  if(checkEmptyAnswer()) return;
   if (!acceptingAnswers) return;
 
   acceptingAnswers = false;
   const answerValue = e.target.value;
 
   if (answerValue === currentQuestion.answer) {
+    e.target.classList.add('correct');
     score += SCORE_POINTS;
     scoreText.innerText = `${score}`;
     
+  }else{
+    e.target.classList.add('incorrect');
   }
   setTimeout(()=>{
     answer.classList.remove('correct', 'incorrect');
@@ -108,13 +126,16 @@ getNewQuestion = () => {
     return window.location.assign('/score.html');
   }
 
+
   const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
+  
 
   answer.value = '';
   acceptingAnswers = true;
 
+  availableQuestions.splice(questionIndex, 1);
 
   questionCounter++;
   progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
@@ -125,12 +146,27 @@ getNewQuestion = () => {
 
 saveScore = () => {
   localStorage.setItem('averageTotalScore', score);
+  showCongratsMessage(score);
+}
+
+function showCongratsMessage(totalScore) {
+  alert(`You have finished the Average Round with a score of ${totalScore} out of 5! \nHit okay to proceed to difficult round`)
+  window.location.assign('/difficult.html')
 }
 startGame();
 
 answer.addEventListener('keydown', (e) => {
   if (e.key === 'Enter') {
     checkAnswer(e);
+
+    if(e.target.classList.contains('incorrect')){
+      e.target.style.backgroundColor = 'red';
+    } else if (e.target.classList.contains('correct')){
+      e.target.style.backgroundColor = 'green';
+    }
+    setTimeout(()=>{
+      e.target.style.backgroundColor = '';
+    }, 1000);
   }
 });
 

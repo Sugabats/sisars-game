@@ -1,13 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto:wght@100;400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
 </head>
-<style>
 
-body{
+<style>
+    .orbit-regular {
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .rubik-doodle shadow-regular {
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+    body{
         background-image: url(Img/Background1.jpg);
         background-size: cover;
         background-repeat: no-repeat;
@@ -19,7 +34,7 @@ body{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 120px;
+        padding-top: 80px;
     }
     .btn1,
     .btn2,
@@ -29,18 +44,21 @@ body{
         height: 50px;
         margin-bottom: 20px;
         font-size: 17px;
-        background-color: rgba(0, 0, 0, 0.25);
+        background-color: rgba(0, 0, 0, 0.5);
         color: white;
         font-weight: 500;
         border-style: solid;
         border-width: 1px;
         transition: background-color 1s;
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     .btn1:hover,
     .btn2:hover,
     .btn3:hover,
     .btn4:hover{
-        background-color: rgb(0, 0, 0, 0.6);
+        background-color: rgb(0, 0, 0, 0.8);
         cursor: pointer;
     }
     h1{
@@ -50,15 +68,21 @@ body{
         padding-right: 20px;
         backdrop-filter: blur(1px);
         border-radius: 20px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 500;
+        font-style: normal;
     }
     h2{
-        font-size: 40px;
+        font-size: 50px;
         margin-top: 10px;
         margin-bottom: 50px;
         padding-left: 20px;
         padding-right: 20px;
         backdrop-filter: blur(1px);
         border-radius: 20px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 500;
+        font-style: normal;
     }
     .mute{
         position: absolute;
@@ -76,19 +100,96 @@ body{
         width: 300px;
         opacity: 0.5;
     }
+
+    @media screen and (max-width: 768px){
+        h1{
+          font-size: 64px;      
+        }
+        h2{
+            font-size: 32px;
+        }
+    }
+    @media screen and (max-width: 480px){
+        h1{
+          font-size: 48px;      
+        }
+        h2{
+            font-size: 24px;
+        }
+    }
+
+    audio #audio{
+        height: 100px;
+    }
+
+    
+
 </style>
 <body>
+   
     
+
     <div class="container">
-        <div id="home" class="flex-colum flex-center"></div>
-            <h1>SiSar's Game</h1>
-            <h2>Siquence and Saries</h2>
-                <a href="/start.html"> <button class="btn1">Start Game</button></a>
-                <a href="/lessons.html"><button class="btn1">Lessons</button></a>
-                <a href="/instructions.html"><button class="btn1">Instructions</button></a>
-                <a href="/about.html"> <button class="btn3">About the Game</button></a>
-                <a href="/score.html"><button class="btn4">Score</button></a>
+
+        <h1>SiSar's Game</h1>
+        <h2>Siquence and Saries</h2>
+        <button class="btn1" onclick="startGame()">Start Game</button>
+        <button class="btn1" onclick="goToLessons()">Lessons</button>
+        <button class="btn1" onclick="showInstructions()">Instructions</button>
+        <button class="btn3" onclick="aboutGame()">About the Game</button>
+        <button class="btn4" onclick="viewScore()">Score</button>
     </div>
-    
+    <audio id="background-audio" autoplay loop>
+        <source src="/audio/y2mate.com - Roa  Awakening Official.mp3" type="audio/mp3">
+    </audio>
+    <div class="audio-controls">
+        <img id="mute" src="/img/mute (1).png" height="30px" width="30px" onclick="muteAudio()" />
+        <img id="unmute" src="/img/volume.png" height="30px" width="30px" onclick="unmuteAudio()" style="display:none;" />
+    </div>
+
+<script src="/js/audio.js"></script>
+    <script>
+
+window.onbeforeunload = function () {
+    document.getElementById("background-audio").pause();
+    localStorage.setItem("isAudioPlaying", "false");
+  };
+        function startGame() {
+            window.location.href = "/start.html";
+        }
+
+        function goToLessons() {
+            window.location.href = "/lessons.html";
+        }
+
+        function showInstructions() {
+            window.location.href = "/instructions.html";
+        }
+
+        function aboutGame() {
+            window.location.href = "/about.html";
+        }
+
+        function viewScore() {
+            window.location.href = "/score.html";
+        }
+
+        function muteAudio() {
+  document.getElementById("background-audio").muted = true;
+  localStorage.setItem("isAudioPlaying", "false");
+  document.getElementById("mute").style.display = "none";
+  document.getElementById("unmute").style.display = "block";
+}
+
+function unmuteAudio() {
+  document.getElementById("background-audio").muted = false;
+  localStorage.setItem("isAudioPlaying", "true");
+  document.getElementById("mute").style.display = "block";
+  document.getElementById("unmute").style.display = "none";
+}
+        window.onload = function() {
+            handleAudio();  
+        };
+    </script>
 </body>
 </html>

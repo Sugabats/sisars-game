@@ -1,5 +1,6 @@
 const question = document.querySelector('.question');
 const answer = document.querySelector('.answer');
+answer.value.toLowerCase();
 const progressText = document.querySelector('.questionHead');
 const scoreText = document.querySelector('.score');
 const timeText = document.querySelector('.time')
@@ -27,6 +28,7 @@ const questions = [
       },
       {
         question: 'A rubber ball is dropped on a hard surface from a height of 80ft and bounces up and down. On each rebound, it bounces up exactly one-half the distance it just came down. How far will the ball have traveled if you catch it after it reaches the top of the seventh bounce?' ,
+
         answer: '1905ft/8', answer: '238.13 ft', 
         answer: '1905/8', answer: '238.13',
     
@@ -47,7 +49,7 @@ const questions = [
         answer: '153.50 pesos', answer: '153.50',    
       },
       {
-        question: 'Suppose Gru saves 100 pesos in January, and each month thereafter, he manages to save one-half more than of what he saved the previous month. How much is Gru s savings after May?' ,
+        question: "Suppose Gru saves 100 pesos in January, and each month thereafter, he manages to save one-half more than of what he saved the previous month. How much is Gru's savings after May?" ,
         answer: '1318.75 pesos', answer: '1318.75',
     
       },
@@ -76,23 +78,39 @@ startGame = () => {
   
 };
 
+checkEmptyAnswer = () => {
+  if(answer.value.trim() === ''){
+    alert('Please answer to proceed');
+    answer.focus();
+    return true;
+  }
+  return false;
+}
+
 checkAnswer = (e) => {
+  if(checkEmptyAnswer()) return;
 if (!acceptingAnswers) return;
 
 acceptingAnswers = false;
 const answerValue = e.target.value;
 
 if (answerValue === currentQuestion.answer) {
+  e.target.classList.add('correct');
   score += SCORE_POINTS;
   scoreText.innerText = `${score}`;
+}else{
+  e.target.classList.add('incorrect');
 }
-
+setTimeout(()=> {
+  answer.classList.add('correct', 'incorrect');
 if (questionCounter < MAX_QUESTIONS) {
   getNewQuestion();
 } else {
   saveScore()
     return window.location.assign('/score.html');
 }
+  acceptingAnswers = true;
+}, 1000);
 };
 
 getNewQuestion = () => {
@@ -107,6 +125,7 @@ question.innerText = currentQuestion.question;
 
 answer.value = '';
 acceptingAnswers = true;
+availableQuestion.splice(questionIndex, 1);
 
 
 questionCounter++;
@@ -116,13 +135,27 @@ timeLeft = 120;
 };
 saveScore = () => {
   localStorage.setItem('difficultTotalScore', score);
+  showCongratsMessage(score);
+}
+function showCongratsMessage(totalScore) {
+  alert(`You have finished the Difficult Round with a score of ${totalScore} out of 5! \nHit okay to see your Final Scores`)
+  window.location.assign('/score.html')
 }
 startGame();
 
 answer.addEventListener('keydown', (e) => {
 if (e.key === 'Enter') {
   checkAnswer(e);
-}
+
+  if(e.target.classList.contains('incorrect')){
+    e.target.style.backgroundColor = 'red';
+  }else if(e.target.classList.contains('correct')){
+    e.target.style.backgroundColor = 'green';
+  }
+  setTimeout(()=>{
+    e.target.style.backgroundColor = '';
+  }, 1000);
+  }
 });
 
 function timer(){

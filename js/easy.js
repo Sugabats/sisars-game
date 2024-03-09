@@ -310,6 +310,13 @@ function startTimer() {
     
     saveScore = () => {
         localStorage.setItem('easyTotalScore', score);
+        showCongratsMessage(score);
+    }
+
+
+    function showCongratsMessage(totalScore) {
+        alert(`You have finished the Easy Round with a score of ${totalScore} out of 5! \nHit okay to proceed to average round`)
+        window.location.assign('/average.html')
     }
 
     startGame()

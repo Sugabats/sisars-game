@@ -3,25 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto:wght@100;400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <title>About the Game</title>
+</head>
     <style>
+        .orbit-regular {
+            font-family: "Orbit", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .rubik-doodle shadow-regular {
+            font-family: "Rubik Doodle Shadow", system-ui;
+            font-weight: 400;
+            font-style: normal;
+        }
         body {
-            background-color: turquoise;
             background-image: url(Img/Background8.jpg);
             background-size: cover;
             background-repeat: no-repeat;
+            margin: 0;
         }
         h1 {
             text-align: center;
             font-size: 70px;
             padding-bottom: 30px;
             color: white;
+            font-family: "Rubik Doodle Shadow", system-ui;
+            font-weight: 400;
+            font-style: normal;
         }
         h2 {
             color: white;
             backdrop-filter: blur(5px);
             display: flex;
             align-self: center;
+            font-size: 35px;
+            font-family: "Rubik Doodle Shadow", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            margin-top: 15px;
         }
         .container {
             display: flex;
@@ -33,10 +57,14 @@
         p {
             display: flex;
             margin: 10px;
-            font-size: 20px;
+            font-size: 23px;
             backdrop-filter: blur(5px);
             color: white;
             align-self: center;
+            font-family: "Chakra Petch", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+            margin: 6px;
         }
         .competencies {
             display: flex;
@@ -80,6 +108,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>About the Game</h1>
     <div class="container">
@@ -100,5 +129,33 @@
         </div>
     </div>
     <a href="index.html"><button class="return">Return to Main Menu</button></a>
+    <audio id="background-audio" autoplay loop>
+        <source src="/audio/background.mp3" type="audio/mp3">
+    </audio>
+    <div class="audio-controls">
+        <img id="mute" src="/img/mute (1).png" height="30px" width="30px" onclick="muteAudio()" />
+        <img id="unmute" src="/img/volume.png" height="30px" width="30px" onclick="unmuteAudio()" style="display:none;" />
+    </div>
+
+        <script src="/js/audio.js"></script>
+
+        <script>
+            function muteAudio() {
+      document.getElementById("background-audio").muted = true;
+      localStorage.setItem("isAudioPlaying", "false");
+      document.getElementById("mute").style.display = "none";
+      document.getElementById("unmute").style.display = "block";
+    }
+    
+    function unmuteAudio() {
+      document.getElementById("background-audio").muted = false;
+      localStorage.setItem("isAudioPlaying", "true");
+      document.getElementById("mute").style.display = "block";
+      document.getElementById("unmute").style.display = "none";
+    }
+            window.onload = function() {
+                handleAudio();  
+            };
+        </script>
 </body>
 </html>

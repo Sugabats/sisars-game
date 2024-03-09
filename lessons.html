@@ -4,12 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lessons</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto:wght@100;400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <title>Lessons</title>
 </head>
+
+<style>
+    .orbit-regular {
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .rubik-doodle shadow-regular {
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+    body{
+        margin: 0;
+        padding: 0;
+        font-family:'Times New Roman', Times, serif;
+        background-image: url(img/Background11.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 80px;
+    }
+    h1{
+        color: white;
+        font-size: 100px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
+    h2{
+        color: white;
+        font-size: 21px;
+        font-family: "Kode Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .wrapper{
+        padding: 5px;
+        width: 95%;
+        margin: 20px auto;
+    }
+
+    header{
+        padding: 0 15px;
+        text-align: center;
+        font-size: 21px;
+    }
+
+    .columns{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin:5px 0;
+    }
+
+    .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        border: 1px solid #000000;
+        margin: 2px;
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        height: 250px;
+        width: 500px;
+    
+    }
+    .link-button{
+        text-align: center;
+        align-self: center;
+        width: 300px;
+        height: 50px;
+        font-size: 17px;
+        border-radius: 40px;
+        border-color: rgb(255, 255, 255, 0);
+        background-color: rgb(255, 255, 255, 0.5);
+        transition: background-color 0.2s;
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .link-button:hover{
+        background-color: rgb(255, 255, 255, 0.8);
+    }
+    .return {
+        position: absolute;
+        display: flex;
+        bottom: 50px;
+        right: 100px;
+        margin: 0;
+        width: 150px;
+        height: 150px;
+        color: white;
+        align-items: center;
+        justify-content: center;
+        border-style: solid;
+        border-width: 1px;
+        border-radius: 50%;
+        border-color: rgb(0, 0, 0);
+        font-size: 17px;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: background-color 0.2s;
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .return:hover{
+        background-color: rgba(0, 0, 0, 0.8);
+        cursor: pointer;
+    }
+
+</style>
+   
+</style>
 <body>
-    <div class="container">
-        <embed src="/files/Arithmetic_Sequence_and_Series.pdf" type="application/pdf" width="100%" height="600px">
-            <embed src="/files/Geometric_Sequence_and_Series.pdf" type="application/pdf" width="100%" height="600px">
-                <embed src="/files/Problems_involing_Sequences_and_Series.pdf" type="application/pdf" width="100%" height="600px">
+    <div class="wrapper">
+        <header>
+            <h1>Lessons</h1>
+        </header>
+        <section class="columns">
+            <div class="column">
+                <h2>Arithmetic Sequence and Series</h2>
+             <button onclick="location.href='/files/Arithmetic_Sequence_and_Series.pdf'">Download PDF</button>
+            </div>
+            <div class="column">
+                <h2>Geometric Sequence and Series</h2>
+                <button onclick="location.href='/files/Geometric_Sequence_and_Series.pdf'">Download PDF</button>
+            </div>
+            <div class="column">
+                <h2>Problems Involving Sequences and Series</h2>
+                <button onclick="location.href='/files/Problems_involing_Sequences_and_Series.pdf'">Download PDF</button>
+            </div>
+        </section>
+        <a href="index.html"><button class="return">Return to Main Menu</button></a>
     </div>
+   
 </body>
 </html>

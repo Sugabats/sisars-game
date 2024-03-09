@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto:wght@100;400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
     <title>SiSar's Game</title>
 </head>
 <style>
-
- 
+    .orbit-regular {
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .rubik-doodle shadow-regular {
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
     body{
         background-image: url(Img/Background6.jpg);
         background-size: cover;
@@ -20,16 +33,22 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 120px;
+        padding-top: 80px;
     }
     h1{
         margin-bottom: 10px;
         font-size: 100px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
     }
     h2{
-        font-size: 40px;
+        font-size: 50px;
         margin-top: 10px;
         margin-bottom: 30px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
     }
     h3{
         font-size: 30px;
@@ -59,6 +78,7 @@
         padding-left: 10px;
         border-radius: 10px;
         border-style: solid;
+        border-color: rgb(0, 0, 0, 0);
         text-align: center;
         font-size: 18px;
         color: black;
@@ -84,14 +104,21 @@
         font-size: rem;
     }
     #question{
+        margin-left: 50px;
+        margin-right: 50px;
         font-size: 25px;
         backdrop-filter: blur(2px);
+        font-family: "Kode Mono", monospace;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+        text-align: center;
     }
     .score{
         position: absolute;
         display: flex;
         left: 50px;
-        top: 50px;
+        top: 100px;
         margin: 0;
         width: 200px;
         height: 200px;
@@ -106,17 +133,16 @@
         position: absolute;
         font-size: 35px;
         left: 110px;
-        top: 10px;
+        top: 60px;
         margin: 0;
         display: inline-block;
         font-weight: 700;
-    } 
-
+    }
     .timer{
         position: absolute;
         display: flex;
         right: 50px;
-        top: 50px;
+        top: 100px;
         margin: 0;
         width: 200px;
         height: 200px;
@@ -132,8 +158,8 @@
     .timerLabel{
         position: absolute;
         font-size: 35px;
-        right: 105px;
-        top: 10px;
+        right: 110px;
+        top: 60px;
         margin: 0;
         display: inline-block;
         color: rgb(0, 0, 0);
@@ -142,7 +168,10 @@
  
     
 </style>
-
+<script> window.onbeforeunload = function () {
+    document.getElementById("background-audio").pause();
+    localStorage.setItem("isAudioPlaying", "false");
+  };</script>
 <body>
     <p class="scoreLabel">Score</p>
     <p class="timerLabel">Timer</p>
@@ -158,9 +187,35 @@
         </div>
 
         <p id="question">"The hardest arithmetic to master is that which enables us to count </p>
-        <input class="answer" type="text" style="text-transform: lowercase;" placeholder="Write the correct answer here"> 
-        
- 
+        <input class="answer" type="text" style="text-transform: lowercase" placeholder="Write the correct answer here"> 
+        <audio id="background-audio" autoplay loop>
+            <source src="/audio/average.mp3" type="audio/mp3">
+        </audio>
+        <div class="audio-controls">
+            <img id="mute" src="/img/mute (1).png" height="30px" width="30px" onclick="muteAudio()" />
+            <img id="unmute" src="/img/volume.png" height="30px" width="30px" onclick="unmuteAudio()" style="display:none;" />
+        </div>
+        <script src="/js/audio.js"></script>
+    
+        <script>
+            function muteAudio() {
+      document.getElementById("background-audio").muted = true;
+      localStorage.setItem("isAudioPlaying", "false");
+      document.getElementById("mute").style.display = "none";
+      document.getElementById("unmute").style.display = "block";
+    }
+    
+    function unmuteAudio() {
+      document.getElementById("background-audio").muted = false;
+      localStorage.setItem("isAudioPlaying", "true");
+      document.getElementById("mute").style.display = "block";
+      document.getElementById("unmute").style.display = "none";
+    }
+            window.onload = function() {
+                handleAudio();  
+            };
+        </script>
+            
   <script src="/js/average.js"></script>
   
 </body>

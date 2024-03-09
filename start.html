@@ -4,11 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SiSar's Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Honk&family=Roboto:wght@100;400;500;700&family=Rubik+Doodle+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbit&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="">
     
 </head>
 <style>
-    
+    .orbit-regular {
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+    }
+    .rubik-doodle shadow-regular {
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
+    }
     body{
         background-image: url(Img/Background2.jpg);
         background-size: cover;
@@ -21,7 +34,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-top: 120px;
+        padding-top: 80px;
     }
     #easy-button,
     #average-button,
@@ -32,16 +45,19 @@
         margin-bottom: 20px;
         font-size: 17px;
         color: white;
-        background-color: rgba(44, 43, 43, 0.25);
+        background-color: rgba(44, 43, 43, 0.5);
         border-style: solid;
         border-width: 1px;
         transition: background-color 1s;
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     #easy-button:hover,
     #average-button:hover,
     #difficult-button:hover,
     #high-scores-button:hover{
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.8);
         cursor: pointer;
     }
     h1{
@@ -51,16 +67,23 @@
         padding-right: 20px;
         backdrop-filter: blur(1px);
         border-radius: 20px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 500;
+        font-style: normal;
     }
     h2{
-        font-size: 40px;
+        font-size: 50px;
         margin-top: 10px;
         margin-bottom: 50px;
         padding-left: 20px;
         padding-right: 20px;
         backdrop-filter: blur(1px);
         border-radius: 20px;
+        font-family: "Rubik Doodle Shadow", system-ui;
+        font-weight: 400;
+        font-style: normal;
     }
+
     .mute{
         position: absolute;
     }
@@ -93,14 +116,14 @@
         border-radius: 50%;
         border-color: rgb(0, 0, 0);
         font-size: 17px;
-        background-color: rgba(0, 0, 0, 0.25);
+        background-color: rgba(0, 0, 0, 0.5);
         transition: background-color 0.5s;
+        font-family: "Orbit", sans-serif;
+        font-weight: 400;
+        font-style: normal;
     }
     .return:hover{
-        background-color: rgba(0, 0, 0, 0.6);
-    }
-    .return:active {
-        background-color: rgb(0, 0, 0, 1);
+        background-color: rgba(0, 0, 0, 0.8);
         cursor: pointer;
     }
 </style>
@@ -108,14 +131,51 @@
     <div class="container">
         <h1>SiSar's Game</h1>
         <h2>Select Difficulty</h2>
-        <a href="/easy.html"><button id="easy-button">Easy</button></a>
-        <a href="/average.html"><button id="average-button">Average</button></a>
-        <a href="/difficult.html"><button id="difficult-button">Difficult</button></a>
+       <button id="easy-button" onclick="easyButton()">Easy</button>
+
+       <button id="average-button" onclick="averageButton()">Average</button>
+
+       <button id="difficult-button" onclick="difficultButton()">Difficult</button>
        
     </div> 
     <a href="index.html">
         <button class="return">Return to Main Menu</button></a>
+        <audio id="background-audio" autoplay loop>
+            <source src="/audio/mainMenu.mp3" type="audio/mp3">
+        </audio>
+        <div class="audio-controls">
+            <img id="mute" src="/img/mute (1).png" height="40px" width="40px" onclick="muteAudio()" />
+            <img id="unmute" src="/img/volume.png" height="40px" width="40px" onclick="unmuteAudio()" style="display:none;" />
+        </div>
     <script src="/js/easy.js"></script>
-    
+    <script>
+        function easyButton(){
+            window.location.href="/easy.html"
+        }
+        
+        function averageButton(){
+            window.location.href="/average.html"
+        }
+        function difficultButton(){
+            window.location.href="/difficult.html"
+        }
+
+        function muteAudio() {
+  document.getElementById("background-audio").muted = true;
+  localStorage.setItem("isAudioPlaying", "false");
+  document.getElementById("mute").style.display = "none";
+  document.getElementById("unmute").style.display = "block";
+}
+
+function unmuteAudio() {
+  document.getElementById("background-audio").muted = false;
+  localStorage.setItem("isAudioPlaying", "true");
+  document.getElementById("mute").style.display = "block";
+  document.getElementById("unmute").style.display = "none";
+}
+        window.onload = function() {
+            handleAudio();  
+        };
+    </script>
    </body>
 </html>
