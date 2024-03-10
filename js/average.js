@@ -27,13 +27,11 @@ const questions = [
   },
   {
     question: 'What is the geometric mean of 3 and 75?',
-    answer: '15', answer:'-15',
-
+    answer: ['15', '-15']
   },
   {
     question: 'What is the sum of the first 6 terms in the sequence with the first term 1/2 and a common ratio of 4?',
-
-    answer: '1365/2', answer:'682.5',
+    answer: ['1365/2', '682.5']
 
   },
   {
@@ -97,7 +95,7 @@ checkAnswer = (e) => {
   acceptingAnswers = false;
   const answerValue = e.target.value;
 
-  if (answerValue === currentQuestion.answer) {
+  if (currentQuestion.answer.includes(answerValue)) {
     e.target.classList.add('correct');
     score += SCORE_POINTS;
     scoreText.innerText = `${score}`;

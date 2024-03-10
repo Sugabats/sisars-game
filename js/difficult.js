@@ -18,44 +18,42 @@ let timeLeft = 120;
 const questions = [
     {
       question: 'How many ancestors will Memay have on the 4th generation if there are 7 generations preceding her?' ,
-      answer: '16 ancestors', answer: '16',
+      answer: ['16 ancestors', '16', '16ancestors']
   
     },
     {
         question: 'If the cell divides every 30 minutes. How many cells are there in 4.5 hours?' ,
-        answer: '512 cells', answer: '512',
+        answer: ['512 cells','512','512cells']
     
       },
       {
         question: 'A rubber ball is dropped on a hard surface from a height of 80ft and bounces up and down. On each rebound, it bounces up exactly one-half the distance it just came down. How far will the ball have traveled if you catch it after it reaches the top of the seventh bounce?' ,
 
-        answer: '1905ft/8', answer: '238.13 ft', 
-        answer: '1905/8', answer: '238.13',
-    
+        answer:  ['1905ft/8', '238.13 ft', '1905/8', '238.13', '238.13ft']
       },
       {
         question: 'A conference hall has 20 rows of seats. The first row contains 20 seats, the second row contains 22 seats, the third row contains 24 seats, and so on. How many seats are there in the last row?' ,
-        answer: '58 seats', answer: '58',
+        answer: ['58 seats', '58', '58seats']
     
       },
       {
         question: 'In the popular Christmas song "12 Days of Christmas", how many gifts are given on the 12th day of Christmas?',
-        answer: '78 gifts', answer: '78',
+        answer: ['78 gifts', '78', '78gifts']
     
       },
       {
         question: "Sisar took a job with a starting hourly wage of 3.50 pesos and is promised a raise of 5 pesos per hour every 2 months for 5 years. At the end of 5 years, what would be Sisar's hourly wage?" ,
 
-        answer: '153.50 pesos', answer: '153.50',    
+        answer: ['153.50 pesos','153.50','153,50pesos'   ]
       },
       {
         question: "Suppose Gru saves 100 pesos in January, and each month thereafter, he manages to save one-half more than of what he saved the previous month. How much is Gru's savings after May?" ,
-        answer: '1318.75 pesos', answer: '1318.75',
+        answer: ['1318.75 pesos','1318.75','1318.75pesos']
     
       },
       {
         question: 'A town with a current population of 100000 citizens is growing at a rate of 2% per year. What the population of the town 5 years from now?' ,
-        answer: '110408 citizens', answer: '110408',
+        answer: ['110408 citizens','110408','110408citizens']
     
       }
 
@@ -94,7 +92,7 @@ if (!acceptingAnswers) return;
 acceptingAnswers = false;
 const answerValue = e.target.value;
 
-if (answerValue === currentQuestion.answer) {
+if (currentQuestion.answer.includes(answerValue)) {
   e.target.classList.add('correct');
   score += SCORE_POINTS;
   scoreText.innerText = `${score}`;
