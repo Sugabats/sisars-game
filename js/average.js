@@ -116,30 +116,31 @@ checkAnswer = (e) => {
   }, 1000);
   
 };
+let lastQuestionIndex = -1; // Initialize lastQuestionIndex to -1
 
 getNewQuestion = () => {
-  if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    
-    saveScore()
-    return window.location.assign('/score.html');
-  }
+      if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        saveScore();
+        return window.location.assign('/score.html');
+      }
 
+      let questionIndex;
+        do {
+          questionIndex = Math.floor(Math.random() * availableQuestions.length);
+        } while (questionIndex === lastQuestionIndex); 
 
-  const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-  currentQuestion = availableQuestions[questionIndex];
-  question.innerText = currentQuestion.question;
-  
+      lastQuestionIndex = questionIndex; 
 
-  answer.value = '';
-  acceptingAnswers = true;
+      currentQuestion = availableQuestions[questionIndex];
+      question.innerText = currentQuestion.question;
+      answer.value = '';
+      acceptingAnswers = true;
 
-  availableQuestions.splice(questionIndex, 1);
+      availableQuestions.splice(questionIndex, 1);
 
-  questionCounter++;
-  progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-  timeLeft = 60;
-    
-  
+      questionCounter++;
+      progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
+      timeLeft = 60;
 };
 
 saveScore = () => {

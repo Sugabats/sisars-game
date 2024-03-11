@@ -111,25 +111,31 @@ if (questionCounter < MAX_QUESTIONS) {
 }, 1000);
 };
 
+let lastQuestionIndex = -1; 
+
 getNewQuestion = () => {
-if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-  saveScore()
-    return window.location.assign('/score.html');
-}
+      if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        saveScore();
+        return window.location.assign('/score.html');
+      }
 
-const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-currentQuestion = availableQuestions[questionIndex];
-question.innerText = currentQuestion.question;
+      let questionIndex;
+        do {
+          questionIndex = Math.floor(Math.random() * availableQuestions.length);
+        } while (questionIndex === lastQuestionIndex); 
 
-answer.value = '';
-acceptingAnswers = true;
-availableQuestion.splice(questionIndex, 1);
+      lastQuestionIndex = questionIndex; 
 
+      currentQuestion = availableQuestions[questionIndex];
+      question.innerText = currentQuestion.question;
+      answer.value = '';
+      acceptingAnswers = true;
 
-questionCounter++;
-progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-timeLeft = 120;
-  
+      availableQuestions.splice(questionIndex, 1);
+
+      questionCounter++;
+      progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
+      timeLeft = 60;
 };
 saveScore = () => {
   localStorage.setItem('difficultTotalScore', score);
