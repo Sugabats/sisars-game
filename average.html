@@ -222,6 +222,10 @@
         <script src="/js/audio.js"></script>
     
         <script>
+
+            
+var audioElement = document.getElementById("background-audio");
+    audioElement.volume = 0.05;
             function muteAudio() {
       document.getElementById("background-audio").muted = true;
       localStorage.setItem("isAudioPlaying", "false");

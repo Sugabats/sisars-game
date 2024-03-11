@@ -168,7 +168,7 @@
 <script src="/js/audio.js"></script>
 
 <script>
-
+        
         window.onbeforeunload = function () {
             document.getElementById("background-audio").pause();
             localStorage.setItem("isAudioPlaying", "false");
@@ -193,6 +193,9 @@
                     window.location.href = "/score.html";
                 }
 
+                
+var audioElement = document.getElementById("background-audio");
+    audioElement.volume = 0.05;
                 function muteAudio() {
         document.getElementById("background-audio").muted = true;
         localStorage.setItem("isAudioPlaying", "false");
