@@ -27,9 +27,9 @@ const questions = [
   },
   {
     question: 'What is the geometric mean of 3 and 75?',
-    answer: ['15', '-15']
+    answer: ['15', '-15'] 
   },
-  {
+  {  
     question: 'What is the sum of the first 6 terms in the sequence with the first term 1/2 and a common ratio of 4?',
     answer: ['1365/2', '682.5']
 
@@ -113,10 +113,10 @@ checkAnswer = (e) => {
       
     }
     acceptingAnswers = true;
-  }, 1000);
+  }, 1000);   
   
 };
-let lastQuestionIndex = -1; // Initialize lastQuestionIndex to -1
+      let lastQuestionIndex = -1; 
 
 getNewQuestion = () => {
       if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {

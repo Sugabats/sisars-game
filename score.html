@@ -23,6 +23,8 @@
         }
         body{
             background-image: url(Img/Background10.png);
+            background-size: fill;
+            background-repeat: no-repeat;
         }
         h1 {
             text-align: center;
@@ -31,7 +33,7 @@
             font-family: "Rubik Doodle Shadow", system-ui;
             font-weight: 400;
             font-style: normal;
-            margin: 0;
+            margin: 0;                 
         }
         h2 {
             font-size: 50px;
@@ -93,6 +95,8 @@
             justify-content: center;
             margin: 0;
             text-align: center;
+            align-items: center;
+            width: 100%;
         }
         .total_score{
             display: flex;
@@ -161,9 +165,62 @@
             background-color: rgba(0, 0, 0, 0.8);
             cursor: pointer;
         }
+
+            @media only screen and (max-width: 375px){
+
+            body{
+                background-size:fill; 
+            } 
+            h1{
+                font-size: 64px;
+                margin-top: 20px;
+                padding-bottom: 5px;
+                
+            } 
+
+            h2{
+                margin-top: -20px;
+            }
+                
+            .return{
+                top: 10PX;
+                left: 20px;           
+                width: 120px;
+                border-radius:50px;
+                font-size: 14px;
+                height: 50px;
+            } 
+
+            .player_scores{
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .easy,
+            .average,
+            .difficult{
+                height: 250px;
+                width: 250px;
+                display: flex;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .content{
+                padding-top: 50px;
+                justify-content: space-around;
+                
+            }
+
+            .total_score{
+                margin-left: 26%;
+            }   
+
+                    }
+
+        
     </style>
 </head>
-
 <body>
     <h1>Scores</h1>
     <div class="container">

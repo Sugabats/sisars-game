@@ -33,4 +33,3 @@ function resetScores() {
 }
 
 const resetButton = document.querySelector('#reset-button');
-resetButton.addEventListener('click', resetScores);
