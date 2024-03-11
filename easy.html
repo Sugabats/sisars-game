@@ -265,19 +265,22 @@
 var audioElement = document.getElementById("background-audio");
     audioElement.volume = 0.05;
 
-            function muteAudio() {
-      document.getElementById("background-audio").muted = true;
-      localStorage.setItem("isAudioPlaying", "false");
-      document.getElementById("mute").style.display = "none";
-      document.getElementById("unmute").style.display = "block";
-    }
-    
-    function unmuteAudio() {
-      document.getElementById("background-audio").muted = false;
-      localStorage.setItem("isAudioPlaying", "true");
-      document.getElementById("mute").style.display = "block";
-      document.getElementById("unmute").style.display = "none";
-    }
+    function muteAudio() {
+        document.getElementById("background-audio").muted = false;
+        localStorage.setItem("isAudioPlaying", "true");
+        document.getElementById("mute").style.display = "none";
+        document.getElementById("unmute").style.display = "block";
+        audioElement.play();
+       
+        }
+
+        function unmuteAudio() {
+        document.getElementById("background-audio").muted = true;
+        localStorage.setItem("isAudioPlaying", "false");
+        document.getElementById("mute").style.display = "block";
+        document.getElementById("unmute").style.display = "none";
+              
+        }
             window.onload = function() {
                 handleAudio();  
             };
