@@ -30,7 +30,7 @@
         font-family:'Times New Roman', Times, serif;
         background-image: url(img/Background11.jpg);
         background-repeat: no-repeat;
-        background-size: fill;
+        background-size: cover;
         margin-top: 80px;
     }
     h1{
@@ -124,20 +124,19 @@
         background-color: rgba(0, 0, 0, 0.8);
         cursor: pointer;
     }
-
-    @media only screen and (max-width: 375px){
-
+    @media only screen and (max-width: 500px){
         body{
-            background-size:fill; 
+            background-size:fill;
+            background-repeat: repeat-y;
         } 
         h1{
             font-size: 38px;
-            margin-top: 70px;
+            margin-top: 0px;
             padding-bottom: 5px;
         } 
             
         h2{
-            font-size: 20px;
+            font-size: 15px;
             margin-top: 10px;
             padding-bottom: -100px;
         }
@@ -154,82 +153,29 @@
             padding-top: 10px;
         }
         .return{
-            top: 10PX;
-            left: 20px;           
-            width: 120px;
-            border-radius:50px;
-            font-size: 14px;
-            height: 50px;
-        } 
-
+            position: relative;
+            height: 30px;
+            width: 180px;
+            font-size: 12px;
+            border-radius: 5px;
+            bottom: 10px;
+            left: 10px;
+        }
+        .columns{
+            flex-direction: row;
+        }
         .column{
-            height: 250px;
-            width: 320px;
+            height: 150px;
+            width: 300px;
             margin: 0;
             padding: 0;
         }
-
         .link-button{
-            width: 210px;
+            width: 200px;
             height: 50px;
-            font-size: 17px;
+            font-size: 13px;
         }
-        }
-
-        @media only screen and (max-width: 414px){
-
-        body{
-            background-size:fill; 
-            margin-top: -20px;
-        } 
-        h1{
-            font-size: 38px;
-            margin-top: 70px;
-            padding-bottom: 5px;
-        } 
-            
-        h2{
-            font-size: 20px;
-            margin-top: 10px;
-            padding-bottom: -100px;
-        }
-
-        h4{
-            font-size: 20px;
-        }
-
-        p{
-            font-size: 13px;  
-            margin:4px;
-        }
-        .competencies{
-            padding-top: 10px;
-        }
-        .return{
-            top: 10PX;
-            left: 20px;           
-            width: 120px;
-            border-radius:50px;
-            font-size: 14px;
-            height: 50px;
-        } 
-
-        .column{
-            height: 250px;
-            width: 320px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .link-button{
-            width: 210px;
-            height: 50px;
-            font-size: 17px;
-        }
-        }
-
-</style>
-   
+    }
 </style>
 <body>
     <div class="wrapper">
@@ -239,7 +185,7 @@
         <section class="columns">
             <div class="column">
                 <h2>Arithmetic Sequence and Series</h2>
-             <button class="link-button"onclick="location.href='/files/Arithmetic_Sequence_and_Series.pdf'">Download PDF</button>
+                <button class="link-button"onclick="location.href='/files/Arithmetic_Sequence_and_Series.pdf'">Download PDF</button>
             </div>
             <div class="column">
                 <h2>Geometric Sequence and Series</h2>
@@ -252,6 +198,5 @@
         </section>
         <a href="index.html"><button class="return">Return to Main Menu</button></a>
     </div>
-   
 </body>
 </html>

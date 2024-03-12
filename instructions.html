@@ -14,7 +14,7 @@
 <style>
         body{
             background-image: url(Img/Background13.jpg);
-            background-size: fill;
+            background-size: cover;
             background-repeat: no-repeat;
             margin: 0;
         }
@@ -94,6 +94,8 @@
         }
         .general{
             margin-bottom: 0px;
+            margin-left: 15%;
+            margin-right: 15%;
         }
         .closing{
             margin-top: 50px;
@@ -104,9 +106,8 @@
         }
         .line1{
             margin: 0;
-        }
-        .line2{
-            margin-top: 0;
+            margin-right: 15%;
+            margin-left: 15%;
         }
         .return {
             z-index: 200;
@@ -138,121 +139,120 @@
             background-color: rgb(0, 0, 0, 1);
             cursor: pointer;
         }
-
-        @media only screen and (max-width: 375px){
-
-            body{
-                background-size:fill; 
-            } 
-            h1{
-                font-size: 38px;
-                margin-top: 70px;
-                padding-bottom: 5px;
-            } 
-                
-            h2{
-                font-size: 20px;
-                margin-top: 10px;
-                padding-bottom: -100px;
-            }
-
-            h4{
-                font-size: 20px;
-            }
-
-            p{
-                font-size: 13px;  
-                margin:4px;
-            }
-            .competencies{
-                padding-top: 10px;
-            }
-            .return{
-                top: 10PX;
-                left: 20px;           
-                width: 120px;
-                border-radius:50px;
-                font-size: 14px;
-                height: 50px;
-            } 
+    @media only screen and (max-width: 375px){
+        body{
+            background-size:fill; 
+        } 
+        h1{
+            font-size: 38px;
+            padding-bottom: 5px;
+        } 
+        .round{
+            font-size: 20px;
         }
-
-        @media only screen and (max-width: 390px){
-
-body{
-    background-size:fill; 
-} 
-h1{
-    font-size: 38px;
-    margin-top: 70px;
-    padding-bottom: 5px;
-} 
-    
-h2{
-    font-size: 20px;
-    margin-top: 10px;
-    padding-bottom: -100px;
-}
-
-h4{
-    font-size: 20px;
-}
-
-p{
-    font-size: 13px;  
-    margin:4px;
-}
-.competencies{
-    padding-top: 10px;
-}
-.return{
-    top: 10PX;
-    left: 20px;           
-    width: 120px;
-    border-radius:50px;
-    font-size: 14px;
-    height: 50px;
-} 
-}
-
-@media only screen and (max-width: 430px){
-
-body{
-    background-size:fill; 
-} 
-h1{
-    font-size: 40px;
-    margin-top: 70px;
-    padding-bottom: 5px;
-} 
-    
-h2{
-    font-size: 20px;
-    margin-top: 10px;
-    padding-bottom: -100px;
-}
-
-h4{
-    font-size: 20px;
-}
-
-p{
-    font-size: 18px;  
-    margin:4px;
-}
-.competencies{
-    padding-top: 10px;
-}
-.return{
-    top: 10PX;
-    left: 20px;           
-    width: 120px;
-    border-radius:50px;
-    font-size: 14px;
-    height: 50px;
-} 
-}
-    </style>
+        h4{
+            font-size: 20px;
+        }
+        p{
+            font-size: 13px;  
+            margin:4px;
+        }
+        .competencies{
+            padding-top: 10px;
+        }
+        .return{
+            top: 10PX;
+            left: 20px;           
+            width: 120px;
+            border-radius:50px;
+            font-size: 14px;
+            height: 50px;
+        } 
+    }
+    @media only screen and (max-width: 500px){
+        body{
+            background-size:fill;
+            background-repeat: repeat-y;
+        } 
+        h1{
+            font-size: 38px;
+            padding-bottom: 5px;
+        } 
+        h2{
+            font-size: 15px;
+        }
+        .closing{
+            margin-top: 10px;
+        }
+        h4{
+            font-size: 20px;
+        }
+        .line1{
+            margin: 0;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+        p{
+            font-size: 13px;  
+            margin:4px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .general{
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 20px;
+        }
+        .competencies{
+            padding-top: 10px;
+        }
+        .return{
+            position: relative;
+            height: 30px;
+            width: 180px;
+            font-size: 12px;
+            border-radius: 5px;
+            bottom: 10px;
+            left: 10px;
+        }
+    }
+    @media only screen and (max-width: 430px){
+        body{
+            background-size:fill; 
+        } 
+        h1{
+            font-size: 40px;
+            margin-top: 70px;
+            padding-bottom: 5px;
+        } 
+        h2{
+            font-size: 20px;
+            margin-top: 10px;
+            padding-bottom: -100px;
+        }
+        .closing{
+            margin-top: 0px;
+        }
+        h4{
+            font-size: 20px;
+        }
+        p{
+            font-size: 18px; 
+            margin: 0;
+        }
+        .competencies{
+            padding-top: 10px;
+        }
+        .return{
+            height: 30px;
+            width: 180px;
+            font-size: 12px;
+            border-radius: 5px;
+            bottom: -120px;
+            left: 30px;
+        }
+    }
+</style>
 </head>
 <script> 
 
@@ -270,18 +270,19 @@ window.onbeforeunload = function () {
                 <h2 class="round">Easy Round:</h2>
                 <p>This round is multiple choice. You have to select the correct answer out of the 4 possible answers within 30 seconds.</p>
                 <h2 class="round">Average Round:</h2>
-                <p class="line1">This round is problem solving so you better prepare a paper for solving as well as calculator for fast computation.</p> 
-                <p class="line2">You have to write the correct answer on the space provided below each question within 60 seconds.</p>
+                <p class="line1">This round is problem solving so you better prepare a paper for solving as well as calculator for fast computation.
+                    You have to write the correct answer on the space provided below each question within 60 seconds.
+                </p> 
                 <h2 class="round">Difficult Round:</h2>
                 <p>This round is the same as the average round but has timer to spike up its difficulty.</p>
-                <p class="general">Each level will have 5 randomly generated questions to be answered by the player.</p>
-                <p class="general">Though each level is unlocked without requirements, it is recommended for the player to</p>
-                <p class="general">start at the lowest level (Easy) and move progressively towards the harder difficulties,</p>
-                <p class="general">average and difficult, respectively. Your scores will be recorded after each attempt.</p>
+                <p class="general">Each level will have 5 randomly generated questions to be answered by the player.
+                    Though each level is unlocked without requirements, it is recommended for the player to
+                    start at the lowest level (Easy) and move progressively towards the harder difficulties,
+                    average and difficult, respectively. Your scores will be recorded after each attempt.</p>
                 <h2 class="closing">Have fun.</h2>
             </div>
+                <a href="index.html"><button class="return">Return to Main Menu</button></a>
         </div>
-        <a href="index.html"><button class="return">Return to Main Menu</button></a>
     </body>
     </html>
 

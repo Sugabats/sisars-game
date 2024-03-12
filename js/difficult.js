@@ -135,7 +135,7 @@ getNewQuestion = () => {
 
       questionCounter++;
       progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`;
-      timeLeft = 60;
+      timeLeft = 120;
 };
 saveScore = () => {
   localStorage.setItem('difficultTotalScore', score);

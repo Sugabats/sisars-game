@@ -31,7 +31,7 @@
         h1 {
             text-align: center;
             font-size: 70px;
-            padding-bottom: 30px;
+            padding-bottom: 20px;
             color: white;
             font-family: "Rubik Doodle Shadow", system-ui;
             font-weight: 400;
@@ -42,11 +42,11 @@
             backdrop-filter: blur(5px);
             display: flex;
             align-self: center;
+            margin-top: 0;
             font-size: 35px;
             font-family: "Rubik Doodle Shadow", system-ui;
             font-weight: 400;
             font-style: normal;
-            margin-top: 15px;
         }
         .container {
             display: flex;
@@ -57,15 +57,17 @@
         }
         p {
             display: flex;
-            margin: 10px;
+            margin-left: 15%;
+            margin-right: 15%;
+            margin-top: 3px;
             font-size: 23px;
             backdrop-filter: blur(5px);
             color: white;
             align-self: center;
             font-family: "Chakra Petch", sans-serif;
             font-weight: 300;
-            font-style: normal;
-            margin: 6px;
+            font-style: normal; 
+            margin-bottom: 0;
         }
         .competencies {
             display: flex;
@@ -135,7 +137,6 @@
                 margin-top: 10px;
                 padding-bottom: -100px;
             }
-
             h4{
                 font-size: 20px;
             }
@@ -155,45 +156,51 @@
                 font-size: 14px;
                 height: 50px;
             } 
-           
-
         }
-
-        @media only screen and (max-width: 412px){
-
-body{
-    background-size:fill; 
-} 
-h1{
-    font-size: 42px;
-    margin-top: 80px;
-    padding-bottom: 5px;
-} 
-    
-h2{
-    font-size: 36px;
-    margin-top: 20px;
-    padding-bottom: -100px;
-}
-
-
-p{
-    font-size: 14px;  
-    margin:4px;
-}
-.competencies{
-    padding-top: 20px;
-}
-.return{
-    top: 10PX;
-    left: 20px;           
-    width: 90px;
-    border-radius:50px;
-    font-size: 14px;
-    height: 50px;
-} 
-
-
+        @media only screen and (max-width: 500px){
+            body{
+                background-size:fill;
+                background-repeat: repeat-y;
+            } 
+            h1{
+                font-size: 38px;
+                padding-bottom: 5px;
+            } 
+            h2{
+                font-size: 20px;
+                margin-top: 20px;
+            }
+            .objectives{
+                font-size: 20px;
+            }
+            .closing{
+                margin-top: 10px;
+            }
+            .line1{
+                margin: 0;
+                margin-right: 20px;
+                margin-left: 20px;
+            }
+            p{
+                font-size: 12px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+            .general{
+                margin-left: 20px;
+                margin-right: 20px;
+                margin-top: 20px;
+            }
+            .competencies{
+                padding-top: 10px;
+            }
+            .return{
+                height: 30px;
+                width: 180px;
+                font-size: 12px;
+                border-radius: 5px;
+                left: 10px;
+            }
 }
     </style>
 </head>
@@ -202,23 +209,23 @@ p{
     <h1>About the Game</h1>
     <div class="container">
         <h2 class="objectives">Objective</h2>
-        <p>The game is designed to develop the necessary skills needed of the learners for Grade 10 Mathematics during the 1st Grading Period.</p>
-        <p>Although the game primary focuses on the least mastered competencies, it also includes the other competencies within the same Grading Period.</p>
+        <p>The game is designed to develop the necessary skills needed of the learners for Grade 10 Mathematics during the 1st Grading Period.
+            Although the game primary focuses on the least mastered competencies, it also includes the other competencies within the same Grading Period.
+        </p>
         <div class="competencies">
             <h2><span style="color: rgb(255, 255, 255);">Least Mastered Competencies:</span></h2>
-            <p>Illustrates an arithmetic sequence <span style="color: rgb(217, 255, 2);"> M10AL-lb-1</span></p>
-            <p>Illustrates a geometric sequence <span style="color: rgb(217, 255, 2);"> M10AL-1d-1</span></p>
-            <p>Solves problems involving sequences <span style="color: rgb(217, 255, 2);"> M10AL-1f-2</span></p>
+            <p>• Illustrates an arithmetic sequence <span style="color: rgb(217, 255, 2);"> M10AL-lb-1</span></p>
+            <p>• Illustrates a geometric sequence <span style="color: rgb(217, 255, 2);"> M10AL-1d-1</span></p>
+            <p>• Solves problems involving sequences <span style="color: rgb(217, 255, 2);"> M10AL-1f-2</span></p>
         </div>
         <div class="competencies">
             <h2><span style="color: rgb(255, 255, 255);">Other Competencies included:</span></h2>
-            <p>Generates patterns  <span style="color: rgb(217, 255, 2);"> M10AL-Ia-1</span></p>
-            <p>Differentiates a geometric sequence from an arithmetic sequence <span style="color: rgb(217, 255, 2);"> M10AL-ld-2</span></p>
-            <p>Determines arithmetic means, nth term of an arithmetic sequence and sum of the terms of a given arithmetic sequence.</p>
-            <p>Determines geometric means, nth term of a geometric sequence and sum of the terms of a given finite or infinite geometric sequence.</p>
+            <p>• Generates patterns  <span style="color: rgb(217, 255, 2);"> M10AL-Ia-1</span></p>
+            <p>• Differentiates a geometric sequence from an arithmetic sequence <span style="color: rgb(217, 255, 2);"> M10AL-ld-2</span></p>
+            <p>• Determines arithmetic means, nth term of an arithmetic sequence and sum of the terms of a given arithmetic sequence.</p>
+            <p class="last">• Determines geometric means, nth term of a geometric sequence and sum of the terms of a given finite or infinite geometric sequence.</p>
         </div>
+        <a href="index.html"><button class="return">Return to Main Menu</button></a>
     </div>
-    <a href="index.html"><button class="return">Return to Main Menu</button></a>
-  
 </body>
 </html>

@@ -26,7 +26,7 @@
     }
     body{
         background-image: url(Img/Background1.jpg);
-        background-size: fill;
+        background-size: cover;
         background-repeat: no-repeat;
         margin: 0;
     }
@@ -104,47 +104,70 @@
     }
 
     .audio-controls {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-}
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px);
+    }
 
-.audio-controls img {
-  cursor: pointer;
-  transition: transform 0.2s;
-}
+    .audio-controls img {
+    cursor: pointer;
+    transition: transform 0.2s;
+    }
 
-.audio-controls img:hover {
-  transform: scale(1.1);
-}
-
-
+    .audio-controls img:hover {
+    transform: scale(1.1);
+    }
 @media screen and (max-width: 768px){
-        h1{
-          font-size: 64px;      
-        }
-        h2{
-            font-size: 32px;
-        }
+    body{
+        background-size: fill;
+        background-repeat: repeat-y;
     }
-    @media screen and (max-width: 480px){
-        h1{
-          font-size: 48px;      
-        }
-        h2{
-            font-size: 24px;
-        }
+    h1{
+        font-size: 64px;      
     }
-  
+    h2{
+        font-size: 32px;
+    }
+    .btn1,
+    .btn2,
+    .btn3,
+    .btn4{
+        height: 50px;
+        width: 200px;
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 500px){
+    body{
+
+    }
+    .container{
+        padding-top: 20px;
+    }
+    h1{
+        font-size: 55px;      
+    }
+    h2{
+        font-size: px;
+    }
+    .btn1,
+    .btn2,
+    .btn3,
+    .btn4{
+        height: 50px;
+        width: 200px;
+        font-size: 15px;
+    }
+}
 </style>
 
 <body>
@@ -157,7 +180,7 @@
             <button class="btn1" onclick="showInstructions()">Instructions</button>
             <button class="btn3" onclick="aboutGame()">About the Game</button>
             <button class="btn4" onclick="viewScore()">Score</button>
-     </div>
+    </div>
 
     <audio id="background-audio" autoplay loop>
         <source src="/audio/y2mate.com - Roa  Awakening Official.mp3" type="audio/mp3">

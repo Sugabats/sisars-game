@@ -24,7 +24,7 @@
     }
     body{
         background-image: url(Img/Background6.jpg);
-        background-size: fill;
+        background-size: cover;
         background-repeat: no-repeat;
         margin: 0;
     }
@@ -166,31 +166,29 @@
         color: rgb(0, 0, 0);
         font-weight: 700;
     }
-    
     .audio-controls {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  border-radius: 10px;
-  padding: 5px;
-  background-color: rgba(255, 255, 255, 0.7);
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(5px);
-}
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 10px;
+        padding: 5px;
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(5px);
+    }
 
-.audio-controls img {
-  cursor: pointer;
-  transition: transform 0.2s;
-}
+    .audio-controls img {
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
 
-.audio-controls img:hover {
-  transform: scale(1.1);
-}
- 
+    .audio-controls img:hover {
+    transform: scale(1.1);
+    }
 @media only screen and (max-width: 480px){
     h1{
         font-size: 48px;
@@ -236,13 +234,11 @@
         top: 10px;
         right: 50px;
         font-size: 25px;
-       
     }
     .scoreLabel{
         top: 10px;
         left: 50px;
         font-size: 25px;
-       
     }
     .timer{
         width: 90px;
@@ -251,7 +247,6 @@
         right: 38px;
         font-size: 25px;
     }
-
     .score{
         width: 90px;
         height: 90px;
@@ -259,14 +254,12 @@
         left: 38px;
         font-size: 25px;
     }
-
-   } 
-    
+} 
 </style>
 <script> window.onbeforeunload = function () {
     document.getElementById("background-audio").pause();
     localStorage.setItem("isAudioPlaying", "false");
-  };</script>
+    };</script>
 <body>
     <p class="scoreLabel">Score</p>
     <p class="timerLabel">Timer</p>
@@ -281,7 +274,7 @@
         <div class="questionHead">
         </div>
 
-        <p id="question">"The hardest arithmetic to master is that which enables us to count </p>
+        <p id="question">You've made it this far, I'm proud of you!</p>
         <input class="answer" type="text" style="text-transform: lowercase" placeholder="Write the correct answer here"> 
         <audio id="background-audio" autoplay loop>
             <source src="/audio/average.mp3" type="audio/mp3">
