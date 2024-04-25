@@ -4,7 +4,8 @@ answer.value.toLowerCase();
 const progressText = document.querySelector('.questionHead');
 const scoreText = document.querySelector('.score');
 const timeText = document.querySelector('.time')
-
+const alertBox = document.getElementById('alert-box');
+const totalScoreText = document.getElementById('totalScore');
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
@@ -99,16 +100,20 @@ if (currentQuestion.answer.includes(answerValue)) {
 }else{
   e.target.classList.add('incorrect');
 }
-setTimeout(()=> {
-  answer.classList.add('correct', 'incorrect');
-if (questionCounter < MAX_QUESTIONS) {
-  getNewQuestion();
-} else {
-  saveScore()
-    return window.location.assign('/score.html');
-}
+setTimeout(()=>{
+  answer.classList.remove('correct', 'incorrect');
+  if (questionCounter < MAX_QUESTIONS) {
+    getNewQuestion();
+  } else if(questionCounter === MAX_QUESTIONS){
+      alertBox.style.display = 'flex';
+      totalScoreText.innerText = score;
+  }else {
+    saveScore()
+    
+  }
   acceptingAnswers = true;
-}, 1000);
+}, 1000);   
+
 };
 
 let lastQuestionIndex = -1; 
@@ -139,11 +144,13 @@ getNewQuestion = () => {
 };
 saveScore = () => {
   localStorage.setItem('difficultTotalScore', score);
-  showCongratsMessage(score);
 }
-function showCongratsMessage(totalScore) {
-  alert(`You have finished the Difficult Round with a score of ${totalScore} out of 5! \nHit okay to see your Final Scores`)
-  window.location.assign('/score.html')
+function showCongratsMessage() {
+  alertBox.style.display = 'flex';
+  totalScoreText.innerText = score;
+  
+}
+ function proceedToFinalScore(){ window.location.assign('/score.html')
 }
 startGame();
 
@@ -156,7 +163,7 @@ if (e.key === 'Enter') {
   }else if(e.target.classList.contains('correct')){
     e.target.style.backgroundColor = 'green';
   }
-  setTimeout(()=>{
+  setTimeout(()=>{  
     e.target.style.backgroundColor = '';
   }, 1000);
   }

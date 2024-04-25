@@ -24,7 +24,7 @@
         font-style: normal;
     }
     body{
-        background-image: url(Img/Background4.jpg);
+        background-image: url(Img/Flowers3.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         margin: 0;
@@ -197,17 +197,38 @@
   transform: scale(1.1);
 }
 
-.alert {
+.alert-box {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 10px 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; 
 }
+.alert-box-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+  mix-blend-mode: normal;
+  filter: blur(0px);
+}
+       .alert-box-content h2 {
+            margin-top: 0;
+        }
+       .alert-box-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
    @media only screen and (max-width: 480px){
     h1{
@@ -294,6 +315,13 @@
         <img id="time" src="/img/timer.png" width="30px">
         <span class="time">60s</span>
     </div>
+    <div class="alert-box" id="alert-box">
+        <div class="alert-box-content">
+            <h2>Congratulations!</h2>
+            <p>You have finished the Easy Round with a score of <span id="totalScore"></span> out of 5!</p>
+            <button onclick="proceedToAverageRound()">Proceed to Average Round</button>
+        </div>
+    </div>
     <div class="container">
         <h1>SiSar's Game</h1>
         <h2>Difficulty: Easy</h2>
@@ -329,6 +357,8 @@
             <img id="mute" src="/img/mute (1).png" height="30px" width="30px" onclick="muteAudio()" />
             <img id="unmute" src="/img/volume.png" height="30px" width="30px" onclick="unmuteAudio()" style="display:none;" />
         </div>
+
+        
         <script src="/js/audio.js"></script>
     
         <script>

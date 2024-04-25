@@ -23,7 +23,7 @@
         font-style: normal;
     }
     body{
-        background-image: url(Img/Background6.jpg);
+        background-image: url(Img/Flowers3.jpg);
         background-size: cover;
         background-repeat: no-repeat;
         margin: 0;
@@ -189,6 +189,38 @@
     .audio-controls img:hover {
     transform: scale(1.1);
     }
+
+    .alert-box {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+       .alert-box-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+       .alert-box-content h2 {
+            margin-top: 0;
+        }
+       .alert-box-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
 @media only screen and (max-width: 480px){
     h1{
         font-size: 48px;
@@ -268,6 +300,14 @@
         <img id="time" src="/img/timer.png" width="30px">
         <span class="time">60s</span>
     </div>
+    <div class="alert-box" id="alert-box">
+        <div class="alert-box-content">
+            <h2>Congratulations!</h2>
+            <p>You have finished the Easy Round with a score of <span id="totalScore"></span> out of 5!</p>
+            <button onclick="proceedToDifficultRound()">Proceed to Difficult Round</button>
+        </div>
+    </div>
+
     <div class="container">
         <h1>SiSar's Game</h1>
         <h2>Difficulty: Average</h2>

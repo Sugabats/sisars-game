@@ -4,6 +4,8 @@ answer.value.toLowerCase();
 const progressText = document.querySelector('.questionHead');
 const scoreText = document.querySelector('.score');
 const timeText = document.querySelector('.time');
+const alertBox = document.getElementById('alert-box');
+const totalScoreText = document.getElementById('totalScore');
 
 
 let currentQuestion = {};
@@ -107,9 +109,11 @@ checkAnswer = (e) => {
     answer.classList.remove('correct', 'incorrect');
     if (questionCounter < MAX_QUESTIONS) {
       getNewQuestion();
-    } else {
+    } else if(questionCounter === MAX_QUESTIONS){
+        alertBox.style.display = 'flex';
+        totalScoreText.innerText = score;
+    }else {
       saveScore()
-      return window.location.assign('/difficult.html');
       
     }
     acceptingAnswers = true;
@@ -121,6 +125,7 @@ checkAnswer = (e) => {
 getNewQuestion = () => {
       if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         saveScore();
+
         return window.location.assign('/score.html');
       }
 
@@ -145,11 +150,16 @@ getNewQuestion = () => {
 
 saveScore = () => {
   localStorage.setItem('averageTotalScore', score);
-  showCongratsMessage(score);
+  
 }
 
-function showCongratsMessage(totalScore) {
-  alert(`You have finished the Average Round with a score of ${totalScore} out of 5! \nHit okay to proceed to difficult round`)
+function showCongratsMessage() {
+  alertBox.style.display = 'flex';
+  totalScoreText.innerText = score;
+  
+}
+
+function proceedToDifficultRound(){
   window.location.assign('/difficult.html')
 }
 startGame();
