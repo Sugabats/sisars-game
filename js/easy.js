@@ -240,7 +240,7 @@
             saveScore();
             if(questionCounter === MAX_QUESTIONS){
                 showCongratsMessage();
-                setTimeout(proceedToAverageRound, 2000)
+                setTimeout(proceedToAverageRound, 5000)
             }
             
         return 
@@ -262,13 +262,12 @@
         availableQuestions.splice(questionIndex, 1)
 
         acceptingAnswers = true 
+        startTimer();
     }
 
 
     function startTimer() {
-        timeLeft = 30;
-        timeText.innerText = timeLeft;
-        const timer = setInterval(() => {
+        timerInterval = setInterval(() => {
             if (timeLeft > 0 && acceptingAnswers) {
                 timeLeft--;
                 timeText.innerText = timeLeft;
@@ -282,34 +281,36 @@
         }, 1000);
     }
 
-        choices.forEach(choice => {
-            choice.addEventListener('click', e =>{
-                if(!acceptingAnswers) return    
-
-                acceptingAnswers = false
-                const selectedChoice = e.target
-                const selectedAnswer = selectedChoice.dataset['number']
-
-                let classToApply = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect'
-
-                if(classToApply === 'correct'){
-                    incrementScore(SCORE_POINTS);
-                }else{
-                    displayCorrectAnswer();
-                }
-
-                selectedChoice.parentElement.classList.add(classToApply)
-
+    choices.forEach(choice => {
+        choice.addEventListener('click', e =>{
+            if(!acceptingAnswers) return    
+    
+            acceptingAnswers = false
+            const selectedChoice = e.target
+            const selectedAnswer = selectedChoice.dataset['number']
+    
+            let classToApply = selectedAnswer == currentQuestion.answer? 'correct' : 'incorrect'
+    
+            if(classToApply === 'correct'){
+                incrementScore(SCORE_POINTS);
                 setTimeout(() => {
-                    selectedChoice.parentElement.classList.remove(classToApply);
-                    if (questionCounter === MAX_QUESTIONS) {
-                        showCongratsMessage();
-                        setTimeout(proceedToAverageRound, 2000)
-                    } 
-                }, 1000);
-            });
+                    getNewQuestion(); 
+                }, 2000); 
+            }else{
+                displayCorrectAnswer();
+            }
+    
+            selectedChoice.parentElement.classList.add(classToApply)
+    
+            setTimeout(() => {
+                selectedChoice.parentElement.classList.remove(classToApply);
+                if (questionCounter === MAX_QUESTIONS) {
+                    showCongratsMessage();
+                    setTimeout(proceedToAverageRound, 5000)
+                } 
+            }, 1000);
         });
-
+    });
         function displayCorrectAnswer() {
             const correctChoice = document.querySelector(`[data-number="${currentQuestion.answer}"]`);
             correctChoice.classList.add('correct');
