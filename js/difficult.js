@@ -158,7 +158,7 @@ getNewQuestion = () => {
 };
 saveScore = () => {
   localStorage.setItem('difficultTotalScore', score);
-  window.location.assign('/score.html');
+ 
 }
 function showCongratsMessage() {
   alertBox.style.display = 'flex';

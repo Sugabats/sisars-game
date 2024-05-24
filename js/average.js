@@ -162,7 +162,7 @@ getNewQuestion = () => {
 
 saveScore = () => {
   localStorage.setItem('averageTotalScore', score);
-  window.location.assign('/score.html');
+  
 }
 
 function showCongratsMessage() {
