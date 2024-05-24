@@ -10,7 +10,7 @@ let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
-let availableQuestion = [];
+let availableQuestions = [];
 let timeLeft = 120;
 
 
@@ -72,7 +72,7 @@ startGame = () => {
   setTimeout(() =>{
    getNewQuestion();
    timer();
-  }, 3000);
+  }, 4000);
  
   
 };
@@ -88,37 +88,51 @@ checkEmptyAnswer = () => {
 
 checkAnswer = (e) => {
   if(checkEmptyAnswer()) return;
-if (!acceptingAnswers) return;
+  if (!acceptingAnswers) return;
 
-acceptingAnswers = false;
-const answerValue = e.target.value;
+  acceptingAnswers = false;
+  const answerValue = e.target.value;
 
-if (currentQuestion.answer.includes(answerValue)) {
-  e.target.classList.add('correct');
-  score += SCORE_POINTS;
-  scoreText.innerText = `${score}`;
-}else{
-  e.target.classList.add('incorrect');
-}
-setTimeout(()=>{
-  answer.classList.remove('correct', 'incorrect');
-  if (questionCounter < MAX_QUESTIONS) {
-    getNewQuestion();
-  } else if(questionCounter === MAX_QUESTIONS){
-      alertBox.style.display = 'flex';
-      totalScoreText.innerText = score;
-  }else {
-    saveScore()
-    
+  if (currentQuestion.answer.includes(answerValue)) {
+    e.target.classList.add('correct');
+    score += SCORE_POINTS;
+    scoreText.innerText = `${score}`;
+
+    if (questionCounter === MAX_QUESTIONS) {
+      saveScore();
+    }
+
+  }else{
+    e.target.classList.add('incorrect');
+    const correctAnswerElement = document.createElement('span');
+    correctAnswerElement.textContent = `Correct answer: ${currentQuestion.answer}`
+    correctAnswerElement.style.color = 'green';
+    correctAnswerElement.classList.add('correctAnswer');
+    e.target.parentNode.appendChild(correctAnswerElement);
   }
-  acceptingAnswers = true;
-}, 1000);   
-
+  setTimeout(()=>{
+    answer.classList.remove('correct', 'incorrect');
+    if (questionCounter < MAX_QUESTIONS) {
+      getNewQuestion();
+    } else if(questionCounter === MAX_QUESTIONS){
+        alertBox.style.display = 'flex';
+        totalScoreText.innerText = score;
+    }else {
+      saveScore()
+    }
+    acceptingAnswers = true;
+  }, 1000);
 };
 
 let lastQuestionIndex = -1; 
 
 getNewQuestion = () => {
+
+      const correctAnswerElement = document.querySelector('.correctAnswer');
+      if(correctAnswerElement){
+        correctAnswerElement.remove();
+      }
+
       if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         saveScore();
         return window.location.assign('/score.html');
@@ -144,6 +158,7 @@ getNewQuestion = () => {
 };
 saveScore = () => {
   localStorage.setItem('difficultTotalScore', score);
+  window.location.assign('/score.html');
 }
 function showCongratsMessage() {
   alertBox.style.display = 'flex';

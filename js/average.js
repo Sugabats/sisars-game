@@ -90,7 +90,6 @@ checkEmptyAnswer = () => {
 }
 
 checkAnswer = (e) => {
-
   if(checkEmptyAnswer()) return;
   if (!acceptingAnswers) return;
 
@@ -101,9 +100,18 @@ checkAnswer = (e) => {
     e.target.classList.add('correct');
     score += SCORE_POINTS;
     scoreText.innerText = `${score}`;
-    
+
+    if (questionCounter === MAX_QUESTIONS) {
+      saveScore();
+    }
+
   }else{
     e.target.classList.add('incorrect');
+    const correctAnswerElement = document.createElement('span');
+    correctAnswerElement.textContent = `Correct answer: ${currentQuestion.answer}`
+    correctAnswerElement.style.color = 'green';
+    correctAnswerElement.classList.add('correctAnswer');
+    e.target.parentNode.appendChild(correctAnswerElement);
   }
   setTimeout(()=>{
     answer.classList.remove('correct', 'incorrect');
@@ -114,15 +122,19 @@ checkAnswer = (e) => {
         totalScoreText.innerText = score;
     }else {
       saveScore()
-      
     }
     acceptingAnswers = true;
-  }, 1000);   
-  
+  }, 1000);
 };
       let lastQuestionIndex = -1; 
 
 getNewQuestion = () => {
+
+      const correctAnswerElement = document.querySelector('.correctAnswer');
+      if(correctAnswerElement){
+        correctAnswerElement.remove();
+      }
+
       if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         saveScore();
 
@@ -150,7 +162,7 @@ getNewQuestion = () => {
 
 saveScore = () => {
   localStorage.setItem('averageTotalScore', score);
-  
+  window.location.assign('/score.html');
 }
 
 function showCongratsMessage() {
