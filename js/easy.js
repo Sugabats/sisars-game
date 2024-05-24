@@ -226,7 +226,7 @@
         score = 0;
         availableQuestions = [...questions]
         getNewQuestion()
-        startTimer()
+       
     }
 
 
