@@ -1,12 +1,17 @@
 window.onload = function() {
-    let easyScore = localStorage.getItem('easyTotalScore');
-    let averageScore = localStorage.getItem('averageTotalScore');
-    let difficultScore = localStorage.getItem('difficultTotalScore');
+  let easyScore = localStorage.getItem('easyTotalScore');
+  let averageScore = localStorage.getItem('averageTotalScore');
+  let difficultScore = localStorage.getItem('difficultTotalScore');
+
   
-    document.getElementById('easyTotalScore').innerText = easyScore;
-    document.getElementById('averageTotalScore').innerText = averageScore;
-    document.getElementById('difficultTotalScore').innerText = difficultScore;
-  
-    let totalScore = parseInt(easyScore) + parseInt(averageScore) + parseInt(difficultScore);
-    document.getElementById('total_score').innerText = `Total: ${totalScore}`;
-  }
+  easyScore = easyScore === null ? 0 : parseInt(easyScore);
+  averageScore = averageScore === null ? 0 : parseInt(averageScore);
+  difficultScore = difficultScore === null ? 0 : parseInt(difficultScore);
+
+  document.getElementById('easyTotalScore').innerText = easyScore;
+  document.getElementById('averageTotalScore').innerText = averageScore;
+  document.getElementById('difficultTotalScore').innerText = difficultScore;
+
+  let totalScore = easyScore + averageScore + difficultScore;
+  document.getElementById('total_score').innerText = `Total: ${totalScore}`;
+}
